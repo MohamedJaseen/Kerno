@@ -5,12 +5,18 @@ spring:
   application:
     name: enterprise-ai-platform
   datasource:
-    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/enterprise_ai}
-    username: ${POSTGRES_USER:platform}
-    password: ${POSTGRES_PASSWORD:platform_local}
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/Enterprise-Ai-Platform}
+    username: ${POSTGRES_USER:app_user}
+    password: ${POSTGRES_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
   jpa:
     hibernate:
       ddl-auto: validate
     open-in-view: false
-  flyway:
-    enabled: true
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
