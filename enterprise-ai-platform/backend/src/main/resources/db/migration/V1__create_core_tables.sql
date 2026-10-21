@@ -1,0 +1,1 @@
+-- TODO: Define core platform tables.

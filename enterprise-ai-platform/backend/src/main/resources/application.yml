@@ -1,0 +1,16 @@
+server:
+  port: ${SERVER_PORT:8080}
+
+spring:
+  application:
+    name: enterprise-ai-platform
+  datasource:
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/enterprise_ai}
+    username: ${POSTGRES_USER:platform}
+    password: ${POSTGRES_PASSWORD:platform_local}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+  flyway:
+    enabled: true
