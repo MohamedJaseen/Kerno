@@ -2,11 +2,13 @@ server:
   port: ${SERVER_PORT:8080}
 
 spring:
+  config:
+    import: optional:file:../.env[.properties]
   application:
     name: enterprise-ai-platform
   datasource:
-    url: ${DB_URL:jdbc:postgresql://localhost:5432/Enterprise-Ai-Platform}
-    username: ${POSTGRES_USER:app_user}
+    url: ${DB_URL:jdbc:postgresql://127.0.0.1:5433/Enterprise-Ai-Platform}
+    username: ${POSTGRES_USER:postgres}
     password: ${POSTGRES_PASSWORD}
     driver-class-name: org.postgresql.Driver
   flyway:
